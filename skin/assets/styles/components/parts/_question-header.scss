@@ -1,0 +1,24 @@
+.question {
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+  }
+
+  &__number,
+  &__title {
+    @include text-size(medium);
+    cursor: default;
+    font-weight: bold;
+  }
+
+}

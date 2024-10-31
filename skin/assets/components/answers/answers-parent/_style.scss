@@ -1,0 +1,22 @@
+ul.answers-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+
+  &--row {
+    .answers-item {
+      width: 100%;
+    }
+  }
+
+  &--columns {
+    .answers-item {
+      width: 100%;
+      flex-grow: 1;
+
+      @include media(tablet up) {
+        width: 40%;
+      }
+    }
+  }
+}

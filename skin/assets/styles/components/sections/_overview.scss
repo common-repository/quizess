@@ -1,0 +1,49 @@
+$overview-colors: (
+  message-bg: $base-persian-color,
+  message-color: $base-white-color,
+);
+
+.overview {
+  height: 100%;
+
+  &__header {
+    @include text-size(big);
+    line-height: 1.4;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+
+    @include media(tablet up) {
+      margin: 50px 0;
+    }
+  }
+
+  .wide-btn {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include media(tablet up) {
+      padding: 50px 0;
+    }
+  }
+
+  &__thank-you {
+    padding: 10px 0;
+    max-width: 400px;
+    margin: 0 auto;
+    color: map-get($overview-colors, 'message-color');
+    background-color: map-get($overview-colors, 'message-bg');
+    text-align: center;
+    font-weight: bold;
+  }
+
+}

@@ -1,0 +1,63 @@
+$footer-colors: ( color: $base-white-color, );
+
+.quizess-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  color: map-get($footer-colors, 'color');
+
+  @include media(tablet up) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &--light {
+    background-color: map-deep-get($theme-colors, light, 'primary-color');
+  }
+
+  &--dark {
+    background-color: map-deep-get($theme-colors, dark, 'primary-color');
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 80px;
+    height: 50px;
+    margin-right: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+  }
+
+  &__copyright {
+    @include text-size(medium);
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-left: 0;
+
+    &-item {
+      list-style: none;
+      margin: 0 5px;
+    }
+
+    .icon {
+      @include text-size(larger);
+      color: map-get($footer-colors, 'color');
+    }
+
+    .icon:hover {
+      color: map-get($footer-colors, 'color');
+    }
+  }
+}

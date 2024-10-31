@@ -1,0 +1,23 @@
+$dialog-colors: (
+  cancel-bg: $base-primary-blue,
+  background: $base-grey-color,
+);
+
+.dialog {
+  text-align: center;
+  background: map-get($dialog-colors, 'background');
+  border: 1px solid map-get($dialog-colors, 'cancel-bg');
+  &__title {
+    margin-bottom: 30px;
+    color: map-get($dialog-colors, 'cancel-bg');
+  }
+  &__button {
+    background: transparent;
+  }
+  &__confirm {
+    margin-left: 10px;
+  }
+  &__cancel {
+    margin-right: 10px;
+  }
+}

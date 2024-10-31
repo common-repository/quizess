@@ -1,0 +1,80 @@
+$wide-colors: (
+  color: $base-white-color,
+  disabled-primary: $base-light-grey-color,
+  disabled-secondary: $base-light-blue-color,
+);
+
+.wide-btn {
+  $this-wide-btn: &;
+  display: flex;
+  min-width: 250px;
+  font-weight: bold;
+  cursor: pointer;
+
+  @include text-size(default);
+  color: map-get($wide-colors, 'color');
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &--disabled {
+    cursor: default;
+    opacity: 0.7;
+    #{$this-wide-btn}__content {
+      background-color: map-get($wide-colors, 'disabled-primary');
+    }
+    #{$this-wide-btn}__graphic {
+      background-color: map-get($wide-colors, 'disabled-secondary');
+    }
+  }
+
+  &--light {
+    #{$this-wide-btn}__content {
+      background-color: map-deep-get($theme-colors, light, 'primary-color');
+      &:hover {
+        background-color: map-deep-get($theme-colors, light, 'secondary-color');
+      }
+    }
+    #{$this-wide-btn}__graphic {
+      background-color: map-deep-get($theme-colors, light, 'secondary-color');
+    }
+  }
+  &--dark {
+    #{$this-wide-btn}__content {
+      background-color: map-deep-get($theme-colors, dark, 'primary-color');
+      &:hover {
+        background-color: map-deep-get($theme-colors, dark, 'secondary-color');
+      }
+    }
+    #{$this-wide-btn}__graphic {
+      background-color: map-deep-get($theme-colors, dark, 'secondary-color');
+    }
+  }
+
+  &__content {
+    padding: 5px 10px;
+    margin: 5px 0;
+    transition: background-color 150ms ease-in-out;
+    flex: 1;
+    text-align: center;
+
+    @include media(tablet up) {
+      padding: 10px 15px;
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  &__graphic {
+    padding: 10px 15px;
+    display: none;
+    align-items: center;
+
+    @include media(tablet up) {
+      display: flex;
+    }
+  }
+}

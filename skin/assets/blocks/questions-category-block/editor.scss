@@ -1,0 +1,66 @@
+@import './components//question-header/style';
+
+$question-category-block: (
+  primary-bg-color: $base-primary-blue,
+  primary-text-color: $base-white-color,
+);
+
+.wp-block-quizess-questions-category-block {
+  @extend %block-element-default;
+  background-color: map-get($question-category-block, 'primary-bg-color');
+  color: map-get($question-category-block, 'primary-text-color');
+
+  .quiz-elements {
+    &__outer {
+      padding: 10px;
+    }
+
+    &__item {
+      border: 1px solid;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .explanation {
+    &__title {
+      @extend %question-top-title;
+      margin: 0;
+      color: map-get($question-category-block, 'primary-text-color');
+    }
+
+    &__header {
+      @extend %explanation-header;
+    }
+
+    &__text {
+      p {
+        @include text-size(default);
+        line-height: 1.7;
+        padding: 10px;
+        margin: 0;
+      }
+    }
+  }
+
+  .preview-media {
+    &__lottie,
+    &__image,
+    &__video {
+      margin: 0;
+    }
+
+    .media-video-class {
+      display: block;
+    }
+  }
+
+  .block-placeholder {
+    background-color: map-get($question-category-block, 'primary-bg-color');
+    color: map-get($question-category-block, 'primary-text-color');
+  }
+
+  .placeholder-icon {
+    fill: map-get($question-category-block, 'primary-text-color');
+  }
+}

@@ -1,0 +1,23 @@
+.details {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__dialog {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__back-outer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &__back-button {
+    width: 100%;
+    padding: 15px 5px;
+  }
+}

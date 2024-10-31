@@ -1,0 +1,123 @@
+$header-colors: (
+  color: $base-white-color,
+  overlay: $base-modal-bg,
+);
+
+.admin-bar {
+  .quizess-header__menu-outer {
+    padding-top: $wp-admin-bar-mobile;
+
+    @include media(tablet up) {
+      padding-top: $wp-admin-bar-desktop;
+    }
+  }
+  .quizess-header__toggle {
+    top: $wp-admin-bar-mobile;
+
+    @include media(tablet up) {
+      top: $wp-admin-bar-desktop;
+    }
+  }
+}
+
+.quizess-header {
+  $this-header: &;
+  color: map-get($header-colors, 'color');
+
+  &.is-hidden {
+    z-index: map-get($zindex, 'header-hidden');
+  }
+
+  &__menu-outer {
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: map-get($zindex, 'header-menu');
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 150vw;
+    bottom: 0;
+    background: map-get($header-colors, 'overlay');
+    z-index: map-get($zindex, 'overlay');
+  }
+
+  &__menu {
+    height: 100vh;
+    width: 250px;
+    z-index: map-get($zindex, 'header-menu');
+
+    @include media(tablet up) {
+      width: 300px;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    cursor: pointer;
+    margin-top: 50px;
+    top: 0;
+    right: -60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 0 15px 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-20px);
+    transition: transform 0.4s ease;
+
+    &-icon {
+      display: flex;
+      transform: rotateZ(180deg);
+      margin-left: 15px;
+    }
+  }
+
+  &.is-opened {
+    #{$this-header}__menu-outer {
+      @include animation(slide-in-left, 0.35s);
+    }
+    #{$this-header}__overlay {
+      @include animation(reveal, 0.3s);
+    }
+    #{$this-header}__toggle {
+      transform: translateX(0);
+    }
+    #{$this-header}__toggle-icon {
+      @include animation(rotate-and-go, 0.35s);
+    }
+  }
+
+  &.is-closed {
+    #{$this-header}__menu-outer {
+      @include animation(slide-out-left, 0.25s);
+    }
+    #{$this-header}__overlay {
+      @include animation(hide, 0.3s);
+    }
+    #{$this-header}__toggle-icon {
+      @include animation(rotate-and-go-back, 0.3s);
+    }
+  }
+
+  &--light {
+    background-color: map-deep-get($theme-colors, light, 'primary-color');
+
+    #{$this-header}__toggle {
+      background-color: map-deep-get($theme-colors, light, 'primary-color');
+    }
+  }
+  &--dark {
+    background-color: map-deep-get($theme-colors, dark, 'primary-color');
+
+    #{$this-header}__toggle {
+      background-color: map-deep-get($theme-colors, dark, 'primary-color');
+    }
+  }
+}

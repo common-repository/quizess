@@ -1,0 +1,34 @@
+$button-variables: (
+  padding: 15px 40px,
+  padding-mobile: 15px 30px,
+);
+
+$button-colors: (
+  color: $base-white-color,
+);
+
+.btn {
+  @extend %button-reset;
+
+  @include text-size(default);
+  color: map-get($button-colors, 'color');
+  padding: map-get($button-variables, 'padding');
+  transition: background-color 150ms ease-in-out;
+  margin: 10px;
+  &--light {
+    background-color: map-deep-get($theme-colors, light, 'primary-color');
+    &:hover {
+      background-color: map-deep-get($theme-colors, light, 'secondary-color');
+    }
+  }
+  &--dark {
+    background-color: map-deep-get($theme-colors, dark, 'primary-color');
+    &:hover {
+      background-color: map-deep-get($theme-colors, dark, 'secondary-color');
+    }
+  }
+
+  @include media(tablet up) {
+    padding: map-get($button-variables, 'padding');
+  }
+}
